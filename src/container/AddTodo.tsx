@@ -2,6 +2,7 @@ import React, { useRef } from 'react'
 import { Dispatch } from 'redux'
 import { connect, useDispatch } from 'react-redux'
 import { addTodo } from '../actions'
+import styles from '../assets/scss/addTodo.module.scss'
 
 const AddTodo = () => {
   const dispatch: Dispatch<any> = useDispatch()
@@ -18,11 +19,13 @@ const AddTodo = () => {
         inputRef.current.value = ''
       }
     }}>
-      <h2>
+      <h2 className={styles.label_wrap}>
         <label htmlFor="new-todo-input">What needs to be done?</label>
       </h2>
-      <input id="new-todo-input" ref={inputRef}></input>
-      <button type="submit">Add</button>
+      <div className="wrapper">
+        <input id="new-todo-input" ref={inputRef}></input>
+        <button className="add_btn" type="submit">Add</button>
+      </div>
     </form>
   )
 }

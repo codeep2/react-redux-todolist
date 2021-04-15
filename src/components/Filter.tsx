@@ -2,7 +2,7 @@ import React from 'react'
 import FilterLink from '../container/FilterLink'
 
 const Filter = () => (
-  <div>
+  <div className="wrapper">
     <FilterLink filter='SHOW_ALL'>
       All
     </FilterLink>

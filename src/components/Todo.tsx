@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-
+import styles from '../assets/scss/todo.module.scss'
 export interface TodoProps {
   id: number;
   completed: boolean;
@@ -18,12 +18,15 @@ export const Todo = ({ id, completed, text, toggleTaskCompleted, editTodo, delet
       onSubmit={e => {
         e.preventDefault()
         editTodo(id, newTodo)
+        if (!newTodo.trim()) {
+          deleteTodo()
+        }
         setEdit(false)
         setNewTodo('')
       }}
     >
-      <div>
-        <label htmlFor="todo-edit">New name for {text}</label>
+      <div className={styles.edit_wrap}>
+        <label htmlFor="todo-edit">New name for <span>{text}</span></label>
         <input
           id="todo-edit"
           type="text"
@@ -31,9 +34,9 @@ export const Todo = ({ id, completed, text, toggleTaskCompleted, editTodo, delet
           onChange={(e) => setNewTodo(e.target.value)}
         />
       </div>
-      <div>
-        <button type="submit">Save</button>
-        <button onClick={() => setEdit(false)}>
+      <div className="btn_group">
+        <button className="save_btn" type="submit">Save</button>
+        <button className="delete_btn" onClick={() => setEdit(false)}>
           Cancel
         </button>
       </div>
@@ -42,22 +45,22 @@ export const Todo = ({ id, completed, text, toggleTaskCompleted, editTodo, delet
 
   const viewTemplate = (
     <div>
-      <div>
+      <div className={styles.checkbox_wrap}>
         <input
           id="todo"
           type="checkbox"
           defaultChecked={completed}
           onChange={() => toggleTaskCompleted()}
         />
-        <label htmlFor="todo">
+        <label className={styles.todo_label} htmlFor="todo">
           {text}
         </label>
       </div>
-      <div>
-        <button onClick={() => setEdit(true)}>
+      <div className="btn_group">
+        <button className="edit_btn" onClick={() => setEdit(true)}>
           Edit
         </button>
-        <button onClick={() => deleteTodo()}>Delete</button>
+        <button className="delete_btn" onClick={() => deleteTodo()}>Delete</button>
       </div>
     </div>
   )

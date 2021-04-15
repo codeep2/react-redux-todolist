@@ -1,0 +1,62 @@
+.checkbox_wrap {
+  position: relative;
+  box-sizing: border-box;
+  font-weight: 400;
+  font-size: 1.6rem;
+  min-height: 24px;
+  padding-left: 24px;
+  .todo_label::before,
+  input[type="checkbox"] {
+    box-sizing: border-box;
+    top: 3px;
+    left: -2px;
+    width: 26px;
+    height: 26px;
+  }
+  input[type="checkbox"] {
+    cursor: pointer;
+    position: absolute;
+    z-index: 1;
+    margin: 0;
+    opacity: 0;
+  }
+  .todo_label {
+    display: inline-block;
+    margin-bottom: 0;
+    padding-left: 8px;
+    cursor: pointer;
+  }
+  .todo_label::before {
+    content: "";
+    position: absolute;
+    border: 2px solid currentColor;
+    background: transparent;
+  }
+  .todo_label::after {
+    box-sizing: content-box;
+    content: "";
+    position: absolute;
+    top: 8px;
+    left: 2px;
+    width: 13px;
+    height: 6px;
+    transform: rotate(-45deg);
+    border: solid;
+    border-width: 0 0 5px 5px;
+    border-top-color: transparent;
+    opacity: 0;
+    background: transparent;
+  }
+  input[type="checkbox"]:checked + .todo_label::after {
+    opacity: 1;
+  }
+}
+
+.edit_wrap {
+  > label {
+    font-size: 1.5rem;
+    > span {
+      background-color: wheat;
+    }
+  }
+}
