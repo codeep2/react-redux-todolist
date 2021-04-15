@@ -6,7 +6,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ![TodoList](demo.png)
 
-### [Online](codeep2.github.io/react-redux-todolist)
+### [Online](https://codeep2.github.io/react-redux-todolist/)
 ## Available Scripts
 
 In the project directory, you can run:
